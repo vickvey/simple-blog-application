@@ -1,6 +1,5 @@
 from pathlib import Path
 import environ
-import os
 
 # Initialize environment variables
 env = environ.Env()
@@ -14,7 +13,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = env('DJANGO_SECRET_KEY', default='default-secret-key')
 
 # Debug mode from environment variable
-DEBUG = env.bool('DJANGO_DEBUG', default=True)
+DEBUG = env.bool('DJANGO_DEBUG', default=False)  # Set default to False for production
 
 # Allowed hosts
 ALLOWED_HOSTS = env.list('DJANGO_ALLOWED_HOSTS', default=['localhost'])
